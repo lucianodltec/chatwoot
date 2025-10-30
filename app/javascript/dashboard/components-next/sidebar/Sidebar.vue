@@ -221,6 +221,7 @@ const menuItems = computed(() => {
       name: 'Captain',
       icon: 'i-woot-captain',
       label: t('SIDEBAR.CAPTAIN'),
+      disabled: true,
       children: [
         {
           name: 'Assistants',
@@ -488,30 +489,35 @@ const menuItems = computed(() => {
         },
         {
           name: 'Settings Audit Logs',
+          disabled: true,
           label: t('SIDEBAR.AUDIT_LOGS'),
           icon: 'i-lucide-briefcase',
           to: accountScopedRoute('auditlogs_list'),
         },
         {
           name: 'Settings Custom Roles',
+          disabled: true,
           label: t('SIDEBAR.CUSTOM_ROLES'),
           icon: 'i-lucide-shield-plus',
           to: accountScopedRoute('custom_roles_list'),
         },
         {
           name: 'Settings Sla',
+          disabled: true,
           label: t('SIDEBAR.SLA'),
           icon: 'i-lucide-clock-alert',
           to: accountScopedRoute('sla_list'),
         },
         {
           name: 'Settings Security',
+          disabled: true,
           label: t('SIDEBAR.SECURITY'),
           icon: 'i-lucide-shield',
           to: accountScopedRoute('security_settings_index'),
         },
         {
           name: 'Settings Billing',
+          disabled: true,
           label: t('SIDEBAR.BILLING'),
           icon: 'i-lucide-credit-card',
           to: accountScopedRoute('billing_settings_index'),

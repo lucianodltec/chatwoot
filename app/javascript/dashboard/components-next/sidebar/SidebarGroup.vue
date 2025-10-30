@@ -11,6 +11,7 @@ import SidebarGroupEmptyLeaf from './SidebarGroupEmptyLeaf.vue';
 const props = defineProps({
   name: { type: String, required: true },
   label: { type: String, required: true },
+  disabled: { type: Boolean, default: false },
   icon: { type: [String, Object, Function], default: null },
   to: { type: Object, default: null },
   activeOn: { type: Array, default: () => [] },
@@ -131,7 +132,7 @@ onMounted(async () => {
 <!-- eslint-disable-next-line vue/no-root-v-if -->
 <template>
   <Policy
-    v-if="!hasChildren || hasAccessibleChildren"
+    v-if="!hasChildren || hasAccessibleChildren && !disabled"
     :permissions="resolvePermissions(to)"
     :feature-flag="resolveFeatureFlag(to)"
     as="li"
@@ -156,7 +157,7 @@ onMounted(async () => {
     >
       <template v-for="child in children" :key="child.name">
         <SidebarSubGroup
-          v-if="child.children"
+          v-if="child.children && !child.disabled"
           :label="child.label"
           :icon="child.icon"
           :children="child.children"

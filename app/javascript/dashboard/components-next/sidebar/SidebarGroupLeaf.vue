@@ -6,6 +6,7 @@ import { useSidebarContext } from './provider';
 
 const props = defineProps({
   label: { type: String, required: true },
+  disabled: { type: Boolean, default: false },
   to: { type: [String, Object], required: true },
   icon: { type: [String, Object], default: null },
   active: { type: Boolean, default: false },
@@ -31,6 +32,7 @@ const shouldRenderComponent = computed(() => {
       :is="to ? 'router-link' : 'div'"
       :to="to"
       :title="label"
+      v-if="!disabled"
       class="flex h-8 items-center gap-2 px-2 py-1 rounded-lg max-w-[9.438rem] hover:bg-gradient-to-r from-transparent via-n-slate-3/70 to-n-slate-3/70 group"
       :class="{
         'text-n-blue-text bg-n-alpha-2 active': active,
