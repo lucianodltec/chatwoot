@@ -5,7 +5,7 @@ FactoryBot.define do
     transient do
       skip_confirmation { true }
       role { 'agent' }
-      auto_offline { true }
+      auto_offline { false }
       account { nil }
       inviter { nil }
     end
