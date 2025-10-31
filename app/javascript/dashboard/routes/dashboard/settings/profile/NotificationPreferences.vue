@@ -172,14 +172,6 @@ export default {
           </span>
         </TableHeaderCell>
         <TableHeaderCell
-          :span="2"
-          label="`${$t('PROFILE_SETTINGS.FORM.NOTIFICATIONS.EMAIL')}`"
-        >
-          <span class="text-sm font-medium normal-case text-n-slate-12">
-            {{ $t('PROFILE_SETTINGS.FORM.NOTIFICATIONS.EMAIL') }}
-          </span>
-        </TableHeaderCell>
-        <TableHeaderCell
           :span="3"
           label="`${$t('PROFILE_SETTINGS.FORM.NOTIFICATIONS.PUSH')}`"
         >
@@ -207,7 +199,7 @@ export default {
             </span>
           </div>
           <div
-            v-for="(type, typeIndex) in ['email', 'push']"
+            v-for="(type, typeIndex) in ['push']"
             :key="typeIndex"
             class="flex items-start gap-2 px-0 text-sm tracking-[0.5] text-left rtl:text-right"
             :class="`col-span-${type === 'push' ? 3 : 2}`"
@@ -225,27 +217,6 @@ export default {
     </div>
     <!--  Layout for mobile devices -->
     <div class="flex flex-col gap-6 sm:hidden">
-      <span class="text-sm font-medium normal-case text-n-slate-12">
-        {{ $t('PROFILE_SETTINGS.FORM.EMAIL_NOTIFICATIONS_SECTION.TITLE') }}
-      </span>
-      <div class="flex flex-col gap-4">
-        <div
-          v-for="(notification, index) in filteredNotificationTypes"
-          :key="index"
-          class="flex flex-row items-start gap-2"
-        >
-          <CheckBox
-            :id="`email_${notification.value}`"
-            :value="`email_${notification.value}`"
-            :is-checked="checkFlagStatus('email', notification.value)"
-            @update="handleEmailInput"
-          />
-          <span class="text-sm text-n-slate-12">{{
-            $t(notification.label)
-          }}</span>
-        </div>
-      </div>
-
       <div class="flex items-center justify-start gap-2">
         <span class="text-sm font-medium normal-case text-n-slate-12">
           {{ $t('PROFILE_SETTINGS.FORM.PUSH_NOTIFICATIONS_SECTION.TITLE') }}
