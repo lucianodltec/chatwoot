@@ -25,7 +25,13 @@ const toggleModalDescription = ref(
   t('AUTOMATION.TOGGLE.ACTIVATION_DESCRIPTION')
 );
 
-const records = computed(() => getters['automations/getAutomations'].value);
+const records = computed(() => {
+  const automations = getters['automations/getAutomations'].value || [];
+  return [...automations].sort((a, b) =>
+    a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' })
+  );
+});
+
 const uiFlags = computed(() => getters['automations/getUIFlags'].value);
 const accountId = computed(() => getters.getCurrentAccountId.value);
 

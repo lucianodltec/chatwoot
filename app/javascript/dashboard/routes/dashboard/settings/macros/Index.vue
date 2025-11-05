@@ -15,7 +15,13 @@ const { t } = useI18n();
 const showDeleteConfirmationPopup = ref(false);
 const selectedMacro = ref({});
 
-const records = computed(() => getters['macros/getMacros'].value);
+const records = computed(() => {
+  const macros = getters['macros/getMacros'].value || [];
+  return [...macros].sort((a, b) =>
+    a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' })
+  );
+});
+
 const uiFlags = computed(() => getters['macros/getUIFlags'].value);
 
 const deleteMessage = computed(() => ` ${selectedMacro.value.name}?`);
