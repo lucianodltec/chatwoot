@@ -22,9 +22,19 @@ const selectedAttribute = ref({});
 const getters = useStoreGetters();
 const store = useStore();
 
-const attributes = computed(() =>
-  getters['attributes/getAttributesByModel'].value(props.attributeModel)
-);
+const attributes = computed(() => {
+  const list =
+    getters['attributes/getAttributesByModel'].value(props.attributeModel) ||
+    [];
+  return [...list].sort((a, b) =>
+    a.attribute_display_name?.localeCompare(
+      b.attribute_display_name || '',
+      'pt',
+      { sensitivity: 'base' }
+    )
+  );
+});
+
 const uiFlags = computed(() => getters['attributes/getUIFlags'].value);
 
 const attributeDisplayName = computed(
