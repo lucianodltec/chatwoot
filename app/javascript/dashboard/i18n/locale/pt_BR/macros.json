@@ -98,7 +98,9 @@
       "SEND_MESSAGE": "Enviar uma Mensagem",
       "CHANGE_PRIORITY": "Alterar Prioridade",
       "ADD_PRIVATE_NOTE": "Adicionar uma Nota Privada",
-      "SEND_WEBHOOK_EVENT": "Enviar evento de Webhook"
+      "SEND_WEBHOOK_EVENT": "Enviar evento de Webhook",
+      "PAUSE": "Pausa",
+      "PAUSE_PLACEHOLDER": "Ex: 2000 (millisegundos)"
     },
     "PRIORITY_TYPES": {
       "NONE": "Nenhuma",

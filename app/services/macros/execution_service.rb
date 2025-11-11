@@ -67,4 +67,10 @@ class Macros::ExecutionService < ActionService
     payload = @conversation.webhook_data.merge(event: 'macro.executed')
     WebhookJob.perform_later(webhook_url.first, payload)
   end
+
+  def pause(milliseconds)
+    duration = milliseconds.first.to_f / 1000.0
+    Rails.logger.info("Macro #{@macro.name}: pausando por #{duration}s")
+    sleep(duration)
+  end
 end

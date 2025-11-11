@@ -45,12 +45,16 @@ const showActionInput = computed(() => {
   const type = macroActionTypes.value.find(
     action => action.key === actionData.value.action_name
   ).inputType;
+
   return !!type;
 });
 
 const dropdownValues = () => {
   return getMacroDropdownValues(actionData.value.action_name);
 };
+
+// nova verificação para exibir o campo de milissegundos
+const isPauseAction = computed(() => actionData.value.action_name === 'pause');
 </script>
 
 <template>
@@ -82,7 +86,21 @@ const dropdownValues = () => {
         :initial-file-name="fileName"
         @reset-action="$emit('resetAction')"
       />
+
+      <!--campo especial da ação “pausa”-->
+      <div v-if="isPauseAction" class="mt-2 flex flex-col">
+        <!-- <label class="text-sm font-medium mb-1 text-n-slate-11">
+          {{ t('MACROS.ACTIONS.PAUSE_LABEL') }} 
+        </label> -->
+        <input
+          v-model="actionData.action_params[0]"
+          type="number"
+          :placeholder="t('MACROS.ACTIONS.PAUSE_PLACEHOLDER')"
+          class="w-full p-2 border border-n-weak rounded-md text-sm"
+        />
+      </div>
     </div>
+
     <NextButton
       v-if="!singleNode"
       v-tooltip="$t('MACROS.EDITOR.DELETE_BTN_TOOLTIP')"

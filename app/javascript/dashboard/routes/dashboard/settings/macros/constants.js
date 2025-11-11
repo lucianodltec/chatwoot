@@ -69,4 +69,9 @@ export const MACRO_ACTION_TYPES = [
     label: 'SEND_WEBHOOK_EVENT',
     inputType: 'url',
   },
+  {
+    key: 'pause',
+    label: 'PAUSE',
+    inputType: 'text',
+  },
 ];
