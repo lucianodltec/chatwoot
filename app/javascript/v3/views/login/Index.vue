@@ -86,13 +86,13 @@ export default {
   computed: {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     showGoogleOAuth() {
-      return Boolean(window.chatwootConfig.googleOAuthClientId);
+      return !this && Boolean(window.chatwootConfig.googleOAuthClientId);
     },
     showSignupLink() {
       return parseBoolean(window.chatwootConfig.signupEnabled);
     },
     showSamlLogin() {
-      return this.globalConfig.isEnterprise;
+      return !this && this.globalConfig.isEnterprise;
     },
   },
   created() {
