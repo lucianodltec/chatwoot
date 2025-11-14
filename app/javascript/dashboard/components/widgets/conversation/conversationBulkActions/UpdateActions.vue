@@ -29,6 +29,7 @@ const actions = ref([
   { icon: 'i-lucide-check', key: 'resolved' },
   { icon: 'i-lucide-redo', key: 'open' },
   { icon: 'i-lucide-alarm-clock', key: 'snoozed' },
+  { icon: 'i-lucide-hourglass', key: 'pending' },
 ]);
 
 const updateConversations = key => {
@@ -51,6 +52,7 @@ const showAction = key => {
     resolved: props.showResolve,
     open: props.showReopen,
     snoozed: props.showSnooze,
+    pending: true,
   };
   return actionsMap[key] || false;
 };
@@ -60,6 +62,7 @@ const actionLabel = key => {
     resolved: t('CONVERSATION.HEADER.RESOLVE_ACTION'),
     open: t('CONVERSATION.HEADER.REOPEN_ACTION'),
     snoozed: t('BULK_ACTION.UPDATE.SNOOZE_UNTIL'),
+    pending: t('BULK_ACTION.UPDATE.MARK_PENDING'),
   };
   return labelsMap[key] || '';
 };

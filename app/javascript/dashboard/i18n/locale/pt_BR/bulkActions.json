@@ -18,6 +18,9 @@
     "AGENT_LIST_LOADING": "Carregando agentes",
     "UPDATE": {
       "CHANGE_STATUS": "Alterar status",
+      "RESOLVE": "Marcar como resolvida",
+      "REOPEN": "Reabrir",
+      "MARK_PENDING": "Deixar pendente",
       "SNOOZE_UNTIL": "Adiar",
       "UPDATE_SUCCESFUL": "Status da conversa atualizado com sucesso.",
       "UPDATE_FAILED": "Falha ao atualizar conversas. Por favor, tente novamente."

@@ -18,7 +18,10 @@
     "AGENT_LIST_LOADING": "Loading agents",
     "UPDATE": {
       "CHANGE_STATUS": "Change status",
-      "SNOOZE_UNTIL": "Snooze",
+      "RESOLVE": "Mark as resolved",
+      "REOPEN": "Reopen",
+      "MARK_PENDING": "Mark as pending", 
+      "SNOOZE_UNTIL": "Snooze",    
       "UPDATE_SUCCESFUL": "Conversation status updated successfully.",
       "UPDATE_FAILED": "Failed to update conversations. Please try again."
     },
