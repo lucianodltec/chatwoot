@@ -347,6 +347,7 @@ export default {
           <woot-code :script="inbox.provider_config.webhook_verify_token" />
         </SettingsSection>
         <SettingsSection
+          v-if="false"
           :title="$t('INBOX_MGMT.SETTINGS_POPUP.WHATSAPP_SECTION_TITLE')"
           :sub-title="
             $t('INBOX_MGMT.SETTINGS_POPUP.WHATSAPP_SECTION_SUBHEADER')
