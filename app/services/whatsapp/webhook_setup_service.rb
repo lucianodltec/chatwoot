@@ -64,6 +64,11 @@ class Whatsapp::WebhookSetupService
   end
 
   def build_callback_url
+    # 1. Prioridade: retornar o valor da ENV, se existir
+    explicit_webhook = ENV['WHATSAPP_WEBHOOK_URL']
+    return explicit_webhook if explicit_webhook && !explicit_webhook.empty?
+
+    # 2. Caso contrário, usa a lógica atual
     frontend_url = ENV.fetch('FRONTEND_URL', nil)
     phone_number = @channel.phone_number
 
