@@ -33,9 +33,10 @@ class Api::V1::Accounts::InboxesController < Api::V1::Accounts::BaseController
       @inbox = Current.account.inboxes.build(
         {
           name: inbox_name(channel),
-          channel: channel
+          channel: channel,
+          lock_to_single_conversation: true
         }.merge(
-          permitted_params.except(:channel)
+          permitted_params.except(:channel, :lock_to_single_conversation)
         )
       )
       @inbox.save!
