@@ -88,7 +88,7 @@ export default {
       return window.chatwootConfig.allowedLoginMethods || ['email'];
     },
     showGoogleOAuth() {
-      return !this && (
+      return (
         this.allowedLoginMethods.includes('google_oauth') &&
         Boolean(window.chatwootConfig.googleOAuthClientId)
       );
