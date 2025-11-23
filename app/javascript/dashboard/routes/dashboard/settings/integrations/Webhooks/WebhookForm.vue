@@ -45,8 +45,7 @@ export default {
   validations: {
     url: {
       required,
-      minLength: minLength(7),
-      url,
+      minLength: minLength(7)
     },
     subscriptions: {
       required,
