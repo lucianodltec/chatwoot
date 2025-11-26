@@ -17,9 +17,11 @@ const selectedMacro = ref({});
 
 const records = computed(() => {
   const macros = getters['macros/getMacros'].value || [];
-  return [...macros].sort((a, b) =>
-    a.name.localeCompare(b.name, 'pt', { sensitivity: 'base' })
-  );
+  return [...macros].sort((a, b) => {
+    const nameA = a?.name || '';
+    const nameB = b?.name || '';
+    return nameA.localeCompare(nameB, 'pt', { sensitivity: 'base' });
+  });
 });
 
 const uiFlags = computed(() => getters['macros/getUIFlags'].value);
@@ -56,7 +58,7 @@ const confirmDeletion = () => {
 const tableHeaders = computed(() => {
   return [
     t('MACROS.LIST.TABLE_HEADER.NAME'),
-    t('MACROS.LIST.TABLE_HEADER.CREATED BY'),
+    t('MACROS.LIST.TABLE_HEADER.CREATED_BY'),
     t('MACROS.LIST.TABLE_HEADER.LAST_UPDATED_BY'),
     t('MACROS.LIST.TABLE_HEADER.VISIBILITY'),
   ];
