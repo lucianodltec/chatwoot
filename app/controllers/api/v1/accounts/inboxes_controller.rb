@@ -37,6 +37,8 @@ class Api::V1::Accounts::InboxesController < Api::V1::Accounts::BaseController
           lock_to_single_conversation: true
         }.merge(
           permitted_params.except(:channel, :lock_to_single_conversation)
+        ).merge(
+          enable_auto_assignment: false
         )
       )
       @inbox.save!
