@@ -73,4 +73,8 @@ class Macros::ExecutionService < ActionService
     Rails.logger.info("Macro #{@macro.name}: pausando por #{duration}s")
     sleep(duration)
   end
+
+  def open_conversation(_params)
+    @conversation.open!
+  end
 end

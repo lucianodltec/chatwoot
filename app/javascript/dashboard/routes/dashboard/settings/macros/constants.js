@@ -74,4 +74,9 @@ export const MACRO_ACTION_TYPES = [
     label: 'PAUSE',
     inputType: 'text',
   },
+  {
+    key: 'open_conversation',
+    label: 'OPEN_CONVERSATION',
+    inputType: null,
+  },
 ];

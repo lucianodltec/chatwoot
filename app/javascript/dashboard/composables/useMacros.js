@@ -38,6 +38,8 @@ export const useMacros = () => {
           id: item.id,
           name: t(`MACROS.PRIORITY_TYPES.${item.i18nKey}`),
         }));
+      case 'open_conversation':
+        return [];
       default:
         return [];
     }
