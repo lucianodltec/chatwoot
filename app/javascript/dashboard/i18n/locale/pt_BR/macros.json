@@ -27,7 +27,7 @@
     "LIST": {
       "TABLE_HEADER": {
         "NAME": "Nome",
-        "CREATED BY": "Criada por",
+        "CREATED_BY": "Criada por",
         "LAST_UPDATED_BY": "Ultima atualização por",
         "VISIBILITY": "Visibilidade"
       },
@@ -100,7 +100,8 @@
       "ADD_PRIVATE_NOTE": "Adicionar uma Nota Privada",
       "SEND_WEBHOOK_EVENT": "Enviar evento de Webhook",
       "PAUSE": "Pausa",
-      "PAUSE_PLACEHOLDER": "Ex: 2000 (millisegundos)"
+      "PAUSE_PLACEHOLDER": "Ex: 2000 (millisegundos)",
+      "OPEN_CONVERSATION": "Abrir conversa"
     },
     "PRIORITY_TYPES": {
       "NONE": "Nenhuma",
@@ -108,6 +109,13 @@
       "MEDIUM": "Média",
       "HIGH": "Alta",
       "URGENT": "Urgente"
+    },
+    "DUPLICATE": {
+      "TOOLTIP": "Duplicar macro",
+      "API": {
+        "SUCCESS_MESSAGE": "Macro duplicada com sucesso",
+        "ERROR_MESSAGE": "Ocorreu um erro ao duplicar a macro. Por favor, tente novamente mais tarde"
+      }
     }
   }
 }

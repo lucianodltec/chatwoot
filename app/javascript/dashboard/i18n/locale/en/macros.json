@@ -27,7 +27,7 @@
     "LIST": {
       "TABLE_HEADER": {
         "NAME": "Name",
-        "CREATED BY": "Created by",
+        "CREATED_BY": "Created by",
         "LAST_UPDATED_BY": "Last updated by",
         "VISIBILITY": "Visibility"
       },
@@ -100,7 +100,8 @@
       "ADD_PRIVATE_NOTE": "Add a Private Note",
       "SEND_WEBHOOK_EVENT": "Send Webhook Event",
       "PAUSE": "Pause",
-      "PAUSE_PLACEHOLDER": "Ex: 2000 (milliseconds)"
+      "PAUSE_PLACEHOLDER": "Ex: 2000 (milliseconds)",
+      "OPEN_CONVERSATION": "Open conversation"
     },
     "PRIORITY_TYPES": {
       "NONE": "None",
@@ -108,6 +109,13 @@
       "MEDIUM": "Medium",
       "HIGH": "High",
       "URGENT": "Urgent"
+    },
+    "DUPLICATE": {
+      "TOOLTIP": "Duplicate macro",
+      "API": {
+        "SUCCESS_MESSAGE": "Macro successfully duplicated",
+        "ERROR_MESSAGE": "An error occurred while duplicating the macro. Please try again later"
+      }
     }
   }
 }
