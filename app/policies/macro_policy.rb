@@ -23,6 +23,10 @@ class MacroPolicy < ApplicationPolicy
     @record.global? || author?
   end
 
+  def clone?
+    @record.global? || author?
+  end
+
   private
 
   def author?

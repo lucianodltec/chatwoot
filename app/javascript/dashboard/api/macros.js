@@ -11,6 +11,10 @@ class MacrosAPI extends ApiClient {
       conversation_ids: conversationIds,
     });
   }
+
+  clone(macroId) {
+    return axios.post(`${this.url}/${macroId}/clone`);
+  }
 }
 
 export default new MacrosAPI();

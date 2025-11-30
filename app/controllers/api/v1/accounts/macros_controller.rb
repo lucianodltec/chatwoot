@@ -1,6 +1,6 @@
 class Api::V1::Accounts::MacrosController < Api::V1::Accounts::BaseController
-  before_action :fetch_macro, only: [:show, :update, :destroy, :execute]
-  before_action :check_authorization, only: [:show, :update, :destroy, :execute]
+  before_action :fetch_macro, only: [:show, :update, :destroy, :execute, :clone]
+  before_action :check_authorization, only: [:show, :update, :destroy, :execute, :clone]
 
   def index
     @macros = Macro.with_visibility(current_user, params)
@@ -43,6 +43,17 @@ class Api::V1::Accounts::MacrosController < Api::V1::Accounts::BaseController
     ::MacrosExecutionJob.perform_later(@macro, conversation_ids: params[:conversation_ids], user: Current.user)
 
     head :ok
+  end
+
+  def clone
+    new_macro = @macro.dup
+    new_macro.name = I18n.t('macros.copy_of', name: @macro.name)
+    new_macro.save!
+    @macro.files.each do |file|
+      new_macro.files.attach(file.blob)
+    end
+    @macro = new_macro
+    render :create
   end
 
   private

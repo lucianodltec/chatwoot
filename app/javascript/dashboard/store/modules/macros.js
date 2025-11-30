@@ -93,6 +93,17 @@ export const actions = {
       commit(types.SET_MACROS_UI_FLAG, { isDeleting: false });
     }
   },
+  clone: async ({ commit }, id) => {
+    commit(types.SET_MACROS_UI_FLAG, { isCreating: true });
+    try {
+      const response = await MacrosAPI.clone(id);
+      commit(types.ADD_MACRO, response.data.payload);
+    } catch (error) {
+      throwErrorMessage(error);
+    } finally {
+      commit(types.SET_MACROS_UI_FLAG, { isCreating: false });
+    }
+  },
 };
 
 export const mutations = {

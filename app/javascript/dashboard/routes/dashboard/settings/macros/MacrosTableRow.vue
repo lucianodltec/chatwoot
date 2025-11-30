@@ -11,7 +11,7 @@ const props = defineProps({
     required: true,
   },
 });
-defineEmits(['delete']);
+defineEmits(['delete', 'clone']);
 const { t } = useI18n();
 
 const createdByName = computed(() => {
@@ -61,6 +61,14 @@ const visibilityLabel = computed(() => {
           faded
         />
       </router-link>
+      <Button
+        v-tooltip.top="$t('MACROS.DUPLICATE.TOOLTIP')"
+        icon="i-lucide-copy-plus"
+        slate
+        xs
+        faded
+        @click="$emit('clone', macro)"
+      />
       <Button
         v-tooltip.top="$t('MACROS.DELETE.TOOLTIP')"
         icon="i-lucide-trash-2"

@@ -41,6 +41,16 @@ const deleteMacro = async id => {
   }
 };
 
+const cloneMacro = async ({ id }) => {
+  try {
+    await store.dispatch('macros/clone', id);
+    useAlert(t('MACROS.DUPLICATE.API.SUCCESS_MESSAGE'));
+    store.dispatch('macros/get');
+  } catch (error) {
+    useAlert(t('MACROS.DUPLICATE.API.ERROR_MESSAGE'));
+  }
+};
+
 const openDeletePopup = response => {
   showDeleteConfirmationPopup.value = true;
   selectedMacro.value = response;
@@ -107,6 +117,7 @@ const tableHeaders = computed(() => {
             :key="index"
             :macro="macro"
             @delete="openDeletePopup(macro)"
+            @clone="cloneMacro"
           />
         </tbody>
       </table>

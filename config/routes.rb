@@ -96,6 +96,7 @@ Rails.application.routes.draw do
           end
           resources :macros, only: [:index, :create, :show, :update, :destroy] do
             post :execute, on: :member
+            post :clone, on: :member
           end
           resources :sla_policies, only: [:index, :create, :show, :update, :destroy]
           resources :custom_roles, only: [:index, :create, :show, :update, :destroy]

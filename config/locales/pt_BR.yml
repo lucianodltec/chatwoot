@@ -388,6 +388,8 @@ pt_BR:
     seconds:
       one: '%{count} segundo'
       other: '%{count} segundos'
+  macros:
+    copy_of: 'Cópia de %{name}'
   automation:
     system_name: 'Sistema de Automação'
   crm:

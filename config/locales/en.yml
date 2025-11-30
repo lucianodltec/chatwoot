@@ -405,6 +405,8 @@ en:
     seconds:
       one: '%{count} second'
       other: '%{count} seconds'
+  macros:
+    copy_of: 'Copy of %{name}'
   automation:
     system_name: 'Automation System'
   crm:
